@@ -16,6 +16,23 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    #@user.update(username: params[:username], 
+            #password: params[:password], email: params[:email])
+
+    if @user.update(user_params)
+      redirect_to new_user_path
+    else
+      render :edit
+    end
+  end
 end
 
 private

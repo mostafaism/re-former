@@ -1,0 +1,59 @@
+<h1>Edit user</h1>
+
+<!--
+
+<form accept-charset="UTF-8" action='<%= user_path(@user)%>' method='post'>
+
+  <input name="_method" type="hidden" value="patch">  
+
+  <input type="hidden" name="authenticity_token" 
+           value="<%= form_authenticity_token %>">
+
+  <label for='user_username'> Username </label><br>
+  <input name='user[username]' type='text'><br>
+
+  <label for='user_password'> Password </label><br>
+  <input name='user[password]' type='password'><br>
+  
+  <label for='user_email'> Email </label><br>
+  <input name='user[email]' type='text'><br>
+
+  <input type='submit'>
+</form>
+
+-->
+
+
+<!--
+
+<%= form_tag user_path(@user), method: 'patch' %>
+
+  <%= label_tag :username, 'Username' %>
+  <%= text_field_tag :username %>
+
+  <%= label_tag :password, 'Password' %>
+  <%= password_field_tag :password %>
+
+  <%= label_tag :email, 'Email' %>
+  <%= text_field_tag :email %>
+
+  <%= submit_tag 'Submit' %>
+
+-->
+
+
+
+<%= form_for @user do |f| %>
+  
+  <%= f.label :username, 'Username' %>
+  <%= f.text_field :username, value: @user.username %>
+
+  <%= f.label :password, 'Password' %>
+  <%= f.password_field :password %>
+
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email, value: 'example@example.com' %>
+
+  <%= f.submit 'Create' %>
+
+<%end%>
